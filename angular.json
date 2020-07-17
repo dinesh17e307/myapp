@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "remainapp"
+    }
+  },
+  "defaultProject": "remainapp",
+  "cli": {
+    "analytics": "a4de9696-0212-4473-a959-322a551f66b7"
+  }
 }
