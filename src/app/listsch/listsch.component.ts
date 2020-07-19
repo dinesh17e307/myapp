@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Sch } from '../share/sch';
-import { DISHES } from '../share/dishes';
+import {DishServicesService} from '../services/dish-services.service';
 @Component({
   selector: 'app-listsch',
   templateUrl: './listsch.component.html',
@@ -8,11 +8,12 @@ import { DISHES } from '../share/dishes';
 })
 export class ListschComponent implements OnInit {
   
-  dishes: Sch[] = DISHES;
+  dishes: Sch[];
    selecteddish:Sch;
-  constructor() { }
+  constructor(private dishservice:DishServicesService) {}
 
   ngOnInit(): void {
+    this.dishes=this.dishservice.getdishes();
   }
   onSelect(dish: Sch) {
     this.selecteddish = dish;
