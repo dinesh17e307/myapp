@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { Sch } from '../share/sch';
 import {DishServicesService} from '../services/dish-services.service';
 @Component({
@@ -9,14 +9,12 @@ import {DishServicesService} from '../services/dish-services.service';
 export class ListschComponent implements OnInit {
   
   dishes: Sch[];
-   selecteddish:Sch;
-  constructor(private dishservice:DishServicesService) {}
+  constructor(private dishservice:DishServicesService,@Inject('BaseURL') private BaseURL) {}
 
   ngOnInit(): void {
-    this.dishes=this.dishservice.getdishes();
+    this.dishservice.getdishes()
+      .subscribe(dishes => this.dishes = dishes);
   }
-  onSelect(dish: Sch) {
-    this.selecteddish = dish;
-  }
+
 
 }
