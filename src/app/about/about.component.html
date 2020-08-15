@@ -64,7 +64,11 @@
     </mat-list-item>
     
   </mat-list>
-  <mat-list-item [hidden]="leader">
+  <div [hidden]="leader||errormsg">
     <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
-  </mat-list-item>
+  </div>
+  <div *ngIf="errormsg">
+    <h2>Error</h2>
+    <h4>{{errormsg}}</h4>
+  </div>
 </div>

@@ -9,11 +9,12 @@ import {DishServicesService} from '../services/dish-services.service';
 export class ListschComponent implements OnInit {
   
   dishes: Sch[];
+  errormsg:string;
   constructor(private dishservice:DishServicesService,@Inject('BaseURL') private BaseURL) {}
 
   ngOnInit(): void {
     this.dishservice.getdishes()
-      .subscribe(dishes => this.dishes = dishes);
+      .subscribe(dishes => this.dishes = dishes,errormsg=>this.errormsg=<any>errormsg);
   }
 
 

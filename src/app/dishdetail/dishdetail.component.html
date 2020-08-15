@@ -66,8 +66,13 @@
              <button type="submit" mat-button class="background-primary text-floral-white" [disabled]=dishform.invalid>Submit</button>
         </form>
       </div>
-      <div [hidden]="dish">
+      <div [hidden]="dish||errormsg">
         <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
       </div>
+      <div *ngIf="errormsg">
+        <h2>Error</h2>
+        <h4>{{errormsg}}</h4>
+      </div>
+      
       </div>
  

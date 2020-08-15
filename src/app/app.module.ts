@@ -36,6 +36,7 @@ import { LoginComponent } from './login/login.component';
 import { baseURL } from './share/baseurl';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import {ProcessHTTPmsgService} from './services/process-httpmsg.service'
 
 
 @NgModule({
@@ -62,7 +63,7 @@ import { LeaderService } from './services/leader.service';
     ReactiveFormsModule,MatProgressSpinnerModule,MatSliderModule,HttpClientModule
   ],
   providers: [DishServicesService,PromotionService
-  ,LeaderService, {provide: 'BaseURL', useValue: baseURL}
+  ,LeaderService,ProcessHTTPmsgService, {provide: 'BaseURL', useValue: baseURL}
 
   ],
   entryComponents: [

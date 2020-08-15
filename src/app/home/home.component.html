@@ -18,9 +18,13 @@
     </p>
   </mat-card-content>
 </mat-card>
-<div [hidden]="dish">
+<div [hidden]="dish||dishmsg">
   <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
-</div>>
+</div>
+<div *ngIf="dishmsg">
+  <h2>Error</h2>
+  <h4>{{dishmsg}}</h4>
+</div>
 <mat-card *ngIf="promotion" fxFlex>
   <mat-card-header>
     <div mat-card-avatar></div>
@@ -28,15 +32,19 @@
       <h3>{{promotion.name | uppercase}}</h3>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image src="{{BaseURL+promotion.image}}" alt={{promotion.name}}>
+  <img mat-card-image src="{{BaseURL + promotion.image}}" alt={{promotion.name}}>
   <mat-card-content>
     <p>{{promotion.description}}
     </p>
   </mat-card-content>
 </mat-card>
-<div [hidden]="promotion">
+<div [hidden]="promotion||promomsg">
   <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
-</div>>
+</div>
+<div *ngIf="promomsg">
+  <h2>Error</h2>
+  <h4>{{promomsg}}</h4>
+</div>
 <mat-card *ngIf="leader" fxFlex>
   <mat-card-header>
     <div mat-card-avatar></div>
@@ -51,7 +59,11 @@
     </p>
   </mat-card-content>
 </mat-card>
-<div [hidden]="leader">
+<div [hidden]="leader||leadermsg">
   <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
-</div>>
+</div>
+<div *ngIf="leadermsg">
+  <h2>Error</h2>
+  <h4>{{leadermsg}}</h4>
+</div>
 </div>

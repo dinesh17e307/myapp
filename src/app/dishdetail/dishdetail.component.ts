@@ -16,6 +16,7 @@ export class DishdetailComponent implements OnInit {
     dish:Sch;
     dishcopy:Sch;
     dishid:string[];
+    errormsg:string;
     prev:string;
     next:string;
     commentuser:Comment;
@@ -44,7 +45,7 @@ export class DishdetailComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.dishservice.getdishid().subscribe(dishid=>this.dishid=dishid);
+      this.dishservice.getdishid().subscribe(dishid=>this.dishid=dishid,errormsg=>this.errormsg=<any>errormsg);
       this.route.params.pipe(switchMap((params:Params)=>this.dishservice.getDish(params['id'])))
       .subscribe(dish=>{this.dish =dish;this.setprevnext(dish.id)});
     }
